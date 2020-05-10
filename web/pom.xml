@@ -24,6 +24,7 @@
             <groupId>io.thorntail</groupId>
             <artifactId>web</artifactId>
             <version>${version.thorntail}</version>
+            <scope>provided</scope>
         </dependency>
 
 <!-- needed if io.thorntail:web isn't a dependency -->
