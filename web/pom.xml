@@ -23,7 +23,7 @@
     <dependencies>
         <dependency>
             <groupId>io.thorntail</groupId>
-            <artifactId>web</artifactId>
+            <artifactId>microprofile</artifactId>
             <version>${version.thorntail}</version>
             <scope>${thorntail.scope}</scope>
         </dependency>
