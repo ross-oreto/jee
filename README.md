@@ -2,8 +2,9 @@
 - build and run the smallest and simplest possible JavaEE application in Thorntail, Wildfly, WebSphere or any JEE container.
 
 #### Running in Thorntail
-using maven plugin
+using maven plugin (doesn't work well on Windows)
 ```bash
+cd web
 mvn thorntail:run
 ```
 - go to browser localhost:8080 and done
@@ -19,8 +20,8 @@ java -jar web/target/web-thorntail.jar
 - for reference https://www.youtube.com/watch?v=LPvZ1P7ko9c
 
 #### deploy an Enterprise Archive (EAR) or WAR to an app server such as Wildfly or WebSphere.
+change thorntail dependency to provided when deploying to an app server. 
 ```
-mvn clean install
-mvn ear:ear
+mvn -Dthorntail.scope=provided clean package
 ```
 - the EAR is ready to deploy

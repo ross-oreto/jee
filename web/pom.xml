@@ -6,6 +6,7 @@
 
     <properties>
         <version.thorntail>2.6.0.Final</version.thorntail>
+        <thorntail.scope>compile</thorntail.scope>
     </properties>
 
     <parent>
@@ -24,7 +25,7 @@
             <groupId>io.thorntail</groupId>
             <artifactId>web</artifactId>
             <version>${version.thorntail}</version>
-            <scope>provided</scope>
+            <scope>${thorntail.scope}</scope>
         </dependency>
 
 <!-- needed if io.thorntail:web isn't a dependency -->
