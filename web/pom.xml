@@ -27,6 +27,12 @@
             <version>${version.thorntail}</version>
             <scope>${thorntail.scope}</scope>
         </dependency>
+        <dependency>
+            <groupId>io.smallrye.config</groupId>
+            <artifactId>smallrye-config-source-yaml</artifactId>
+            <version>1.8.0</version>
+            <scope>${thorntail.scope}</scope>
+        </dependency>
 
 <!-- needed if io.thorntail:web isn't a dependency -->
 <!--        <dependency>-->

@@ -37,7 +37,7 @@
                         <webModule>
                             <groupId>com.mmna</groupId>
                             <artifactId>web</artifactId>
-                            <contextRoot>/jee</contextRoot>
+                            <contextRoot>/</contextRoot>
                         </webModule>
                     </modules>
                 </configuration>
