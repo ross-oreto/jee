@@ -19,6 +19,11 @@ java -jar web/target/web-thorntail.jar
 - this should get you break points and hot swapping
 - for reference https://www.youtube.com/watch?v=LPvZ1P7ko9c
 
+### set app environment (default is dev)
+```bash
+java -jar web/target/web-thorntail.jar -Dapplication.env=prod
+```
+
 #### deploy an Enterprise Archive (EAR) or WAR to an app server such as Wildfly or WebSphere.
 change thorntail dependency to provided when deploying to an app server. 
 ```
