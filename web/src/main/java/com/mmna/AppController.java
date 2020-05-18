@@ -10,6 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.ext.Provider;
 import java.io.IOException;
@@ -22,6 +23,14 @@ import java.util.Map;
 @Provider
 @Path("/")
 public class AppController implements ContainerRequestFilter {
+    public static final Locale defaultLocale = new Locale("en-US");
+
+    public static Locale toLocale(String s) {
+        if (s == null || s.isEmpty()) return defaultLocale;
+        String[] codes = s.split("[-_]");
+        return codes.length > 1 ? new Locale(codes[0], codes[1].substring(0, 2).toUpperCase()) : new Locale(codes[0]);
+    }
+
     protected Config config = ConfigProvider.getConfig();
     protected RythmEngine rythmEngine;
 
@@ -35,7 +44,7 @@ public class AppController implements ContainerRequestFilter {
 
     @GET
     public String sayHello(@Context Request request) {
-        return rythmEngine.render("helloworld.html", "World");
+        return rythmEngine.render("helloworld.html", "!");
     }
 
     /**
@@ -59,6 +68,12 @@ public class AppController implements ContainerRequestFilter {
      */
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
-        rythmEngine.prepare(new Locale(requestContext.getHeaderString("Accept-Language")));
+        MultivaluedMap<String, String> query = requestContext.getUriInfo().getQueryParameters();
+        String langName = config.getValue("lang.query", String.class);
+        String acceptLang = requestContext.getHeaderString("Accept-Language");
+        Locale locale = query.containsKey(langName)
+                ? toLocale(query.getFirst(langName))
+                : toLocale(acceptLang);
+        rythmEngine.prepare(locale);
     }
 }

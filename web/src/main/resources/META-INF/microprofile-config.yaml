@@ -3,3 +3,5 @@ rythm:
     template: [".", "web", "src", "main", "webapp"]
   engine:
     mode: "prod"
+lang:
+  query: "lang"
