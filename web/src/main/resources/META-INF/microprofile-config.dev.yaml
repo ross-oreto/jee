@@ -1,1 +1,3 @@
-dev: dev
+rythm:
+  engine:
+    mode: "dev"

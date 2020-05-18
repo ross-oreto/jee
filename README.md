@@ -1,5 +1,5 @@
 ### JEE Hello World
-- build and run the smallest and simplest possible JavaEE application in Thorntail, Wildfly, WebSphere or any JEE container.
+- build and run a simple JavaEE application in Thorntail, Wildfly, WebSphere or any JEE container.
 
 #### Running in Thorntail
 using maven plugin (doesn't work well on Windows)
@@ -7,7 +7,7 @@ using maven plugin (doesn't work well on Windows)
 cd web
 mvn thorntail:run
 ```
-- go to browser localhost:8080 and done
+- go to browser localhost:8080/app and done
 
 ### debugging
 ```bash
